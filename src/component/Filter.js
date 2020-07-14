@@ -3,7 +3,7 @@ import React,{useState} from 'react';
 import { Typography } from '@material-ui/core';
 
 import data from './data/data.json';
-import FilterButton from './FilterButton';
+// import FilterButton from './FilterButton';
 // import GroupButton from './GroupButton';
 
 import { Bar } from 'react-chartjs-2';
