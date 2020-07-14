@@ -8,7 +8,7 @@ import Layout from './component/layout/Layout'
 
 import {menulinktotal,judulmenutotal,deskripsimenutotal} from './component/header/arraymenu';
 
-import InputCoba from './component/InputCoba'
+// import InputCoba from './component/InputCoba'
 
 function App() {
   return (
@@ -30,8 +30,6 @@ function App() {
           )
         })}
       </Switch>
-
-      <InputCoba />
     </div>
   )
 }
