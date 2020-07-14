@@ -16,7 +16,7 @@ export const selulerlabel=['Telkomsel', 'XL/Axis', 'Indosat', 'Smartfren', '3']
 
 export const selulerdata=cariseluler.map(item => data["Evaluasi Kualitas Aplikasi Pcar"].filter(data => data["Jaringan"]===item).length);
 
-export const pcmobilelabel=['PC/Laptop: Windows', 'PC/Laptop: Linux', 'PC/Laptop: MacOS', 'Mobile: Android', 'Mobile: Apple iOS']
+export const pcmobilelabel=['Windows', 'Linux', 'MacOS', 'Android', 'Apple iOS']
 export const caripcmobile=['PC/Laptop: Windows','PC/Laptop: Linux','PC/Laptop: MacOs','Mobile: Android','Mobile: Apple iOS']
 export const pcmobiledata=caripcmobile.map(item => data["Evaluasi Kualitas Aplikasi Pcar"].filter(data => data["Perangkat"]===item).length);
 
