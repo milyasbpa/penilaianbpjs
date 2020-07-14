@@ -16,7 +16,7 @@ function App() {
 
       {/* Layouting dibawah header */}
       <Switch>
-        <Route exact path='/' component = {Home} />
+        <Route exact path='/penilaianbpjs' component = {Home} />
 
         {menulinktotal.map((item,index)=> {
           return(

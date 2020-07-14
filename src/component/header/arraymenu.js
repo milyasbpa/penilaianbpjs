@@ -1,5 +1,5 @@
 export const menunavbar=['Home','BOA','Lupis','Pcare','Vclaim', 'VD']
-export const menulink=['/','/boa','/lupis','/pcare','/vclaim','/vd']
+export const menulink=['/penilaianbpjs','/boa','/lupis','/pcare','/vclaim','/vd']
 
 export const judulmenu=[
     'BPJS Office Application (BOA)',
