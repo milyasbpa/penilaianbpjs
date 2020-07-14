@@ -356,7 +356,7 @@ export default function Filter() {
     }
 
     return (
-        <div className="Filter">
+        <div className="Filter" style={{}} >
             <br />
             <Typography variant="h4">Analisis Data</Typography>
             <br />
@@ -412,7 +412,7 @@ export default function Filter() {
                 <Grid container spacing={3}>
                    
                     {datasemuagrafik.map((datasemuagrafik,index) => {return (
-                        <Grid item xs={6} sm={6} md={4} >
+                        <Grid item xs={12} sm={6} md={4} >
                             <Typography variant="p">{juduldatasemua[index]}</Typography>
                             <Bar data={datasemuagrafik} options={options}  />
                         </Grid>
