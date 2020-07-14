@@ -8,11 +8,13 @@ import Layout from './component/layout/Layout'
 
 import {menulinktotal,judulmenutotal,deskripsimenutotal} from './component/header/arraymenu';
 
+import InputCoba from './component/InputCoba'
 
 function App() {
   return (
     <div className="App">
       <Header1/>
+
 
       {/* Layouting dibawah header */}
       <Switch>
@@ -28,6 +30,8 @@ function App() {
           )
         })}
       </Switch>
+
+      <InputCoba />
     </div>
   )
 }

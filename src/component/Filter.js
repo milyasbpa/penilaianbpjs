@@ -11,6 +11,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 
 
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+
+
 import {warnagrafik,warnaborder} from './warna/warna'
 
 // Style
@@ -19,6 +25,10 @@ const useStyles = makeStyles((theme) => ({
       flexGrow: 1,
       marginTop:'20px'
     },
+    formControl: {
+        margin: theme.spacing(1),
+        minWidth: 120,
+      },
   }));
 
 
@@ -42,6 +52,8 @@ export default function Filter() {
     const atas54=()=> {setUsia('55-64')}
     const atas64=()=> {setUsia('> 64')}
     const all2=()=> {setUsia(`All`)}
+    const age=[all2,bawah25,atas24,atas34,atas44,atas54,atas64]
+    const labelage=['All','< 25','25-34','35-44','45-54','55-64','> 64']
 
     // Jaringan kabel
     const [Jaringan,setJaringan] = useState(`All`)
@@ -56,6 +68,9 @@ export default function Filter() {
     const indosat=()=> {setJaringan('Seluler: Indosat')}
     const smartfren=()=> {setJaringan('Seluler: Smartfren')}
     const three=()=> {setJaringan('Seluler: 3')}
+    const network=[all3,telkom,firstmedia,mncplay,biznet,myrepublic,telkomsel,xlaxis,indosat,smartfren,three]
+    const labelnetwork=['All','Kabel: Telkom','Kabel: First Media','Kabel: MNC Play','Kabel: Biznet','Kabel: MyRepublic',
+    'Seluler: Telkomsel','Seluler: XL/Axis','Seluler: Indosat','Seluler: Smartfren','Seluler: 3']
 
     // Device
     const [Device,setDevice] = useState(`All`)
@@ -65,7 +80,8 @@ export default function Filter() {
     const android=()=> {setDevice('Mobile: Android')}
     const ios=()=> {setDevice('Mobile: Apple iOS')}
     const all4=()=> {setDevice('All')}
-    
+    const pcdevice = [all4,windows,linux,macos,android,ios]
+    const labelpcdevice=['All','PC/Laptop: Windows','PC/Laptop: Linux','PC/Laptop: MacOs','Mobile: Android','Mobile: Apple iOS']
 
     // const [datas,setDataFilter]=useState({})
     let filterdata={
@@ -154,194 +170,7 @@ export default function Filter() {
 })
 
 
-    // const datakepuasan= {
-    //     labels: labelkepuasan,
-    //     datasets: [{
-    //         label: 'Pengguna',
-    //         data: grafikkepuasan,
-    //         backgroundColor: warnagrafik,
-    //         borderColor: warnaborder,
-    //         borderWidth: 1
-    //     }]
-    // }
-
-    // const datakepercayaan= {
-    //     labels: labelkepercayaan,
-    //     datasets: [{
-    //         label: 'Pengguna',
-    //         data: grafikkepercayaan,
-    //         backgroundColor: warnagrafik,
-    //         borderColor: warnaborder,
-    //         borderWidth: 1
-    //     }]
-    // }
-
     
-
-    // // const sangatsenang=datafilter.filter(item => item["Kesenangan"] === 'Sangat senang').length
-    // // const senang=datafilter.filter(item => item["Kesenangan"] === 'Senang').length
-    // // const cukupsenang=datafilter.filter(item => item["Kesenangan"] === 'Cukup senang').length
-    // // const kurangsenang=datafilter.filter(item => item["Kesenangan"] === 'Kurang senang').length
-    // // const tidaksenang=datafilter.filter(item => item["Kesenangan"] === 'Tidak senang').length 
-
-    // const datakesenangan= {
-    //     labels: ['Sangat Senang', 'Senang', 'Cukup Senang', 'Kurang Senang', 'Tidak Senang'],
-    //     datasets: [{
-    //         label: 'Pengguna',
-    //         data: [sangatsenang, senang, cukupsenang, kurangsenang, tidaksenang],
-    //         backgroundColor: [
-    //             '#303C55',
-    //             '#8892b0',
-    //             '#a8b2d1',
-    //             '#ccd6f6',
-    //             '#e6f1ff',
-    //             '#64ffda',
-    //         ],
-    //         borderColor: [
-    //             'rgba(187, 134, 252, 0.87)',
-    //             'rgba(3, 218, 198, 0.87)',
-    //         ],
-    //         borderWidth: 1
-    //     }]
-    // }
-
-    // // const sangatnyaman=datafilter.filter(item => item["Kenyamanan"] === 'Sangat nyaman').length
-    // // const nyaman=datafilter.filter(item => item["Kenyamanan"] === 'Nyaman').length
-    // // const cukupnyaman=datafilter.filter(item => item["Kenyamanan"] === 'Cukup nyaman').length
-    // // const kurangnyaman=datafilter.filter(item => item["Kenyamanan"] === 'Kurang nyaman').length
-    // // const tidaknyaman=datafilter.filter(item => item["Kenyamanan"] === 'Tidak nyaman').length 
-
-    // const datakenyamanan= {
-    //     labels: ['Sangat Nyaman', 'Nyaman', 'Cukup Nyaman', 'Kurang Nyaman', 'Tidak Nyaman'],
-    //     datasets: [{
-    //         label: 'Pengguna',
-    //         data: [sangatnyaman, nyaman, cukupnyaman, kurangnyaman, tidaknyaman],
-    //         backgroundColor: [
-    //             '#303C55',
-    //             '#8892b0',
-    //             '#a8b2d1',
-    //             '#ccd6f6',
-    //             '#e6f1ff',
-    //             '#64ffda',
-    //         ],
-    //         borderColor: [
-    //             'rgba(187, 134, 252, 0.87)',
-    //             'rgba(3, 218, 198, 0.87)',
-    //         ],
-    //         borderWidth: 1
-    //     }]
-    // }
-
-    // const ksangatsering=datafilter.filter(item => item["Kesalahan operasi"] === 'Sangat sering').length
-    // const ksering=datafilter.filter(item => item["Kesalahan operasi"] === 'Sering').length
-    // const kcukupsering=datafilter.filter(item => item["Kesalahan operasi"] === 'Cukup sering').length
-    // const kjarang=datafilter.filter(item => item["Kesalahan operasi"] === 'Jarang').length
-    // const ktidakpernah=datafilter.filter(item => item["Kesalahan operasi"] === 'Tidak pernah').length 
-
-    // const datakesalahanoperasi= {
-    //     labels: ['Sangat Sering', 'Sering', 'Cukup Sering', 'Jarang', 'Tidak Pernah'],
-    //     datasets: [{
-    //         label: 'Pengguna',
-    //         data: [ksangatsering, ksering, kcukupsering, kjarang, ktidakpernah],
-    //         backgroundColor: [
-    //             '#303C55',
-    //             '#8892b0',
-    //             '#a8b2d1',
-    //             '#ccd6f6',
-    //             '#e6f1ff',
-    //             '#64ffda',
-    //         ],
-    //         borderColor: [
-    //             'rgba(187, 134, 252, 0.87)',
-    //             'rgba(3, 218, 198, 0.87)',
-    //         ],
-    //         borderWidth: 1
-    //     }]
-    // }
-
-    // const tampilan5=datafilter.filter(item => item["Tampilan"] === '5').length
-    // const tampilan4=datafilter.filter(item => item["Tampilan"] === '4').length
-    // const tampilan3=datafilter.filter(item => item["Tampilan"] === '3').length
-    // const tampilan2=datafilter.filter(item => item["Tampilan"] === '2').length
-    // const tampilan1=datafilter.filter(item => item["Tampilan"] === '1').length 
-
-    // const datatampilan= {
-    //     labels: ['1', '2', '3', '4', '5'],
-    //     datasets: [{
-    //         label: 'Pengguna',
-    //         data: [tampilan1, tampilan2, tampilan3, tampilan4, tampilan5],
-    //         backgroundColor: [
-    //             '#303C55',
-    //             '#8892b0',
-    //             '#a8b2d1',
-    //             '#ccd6f6',
-    //             '#e6f1ff',
-    //             '#64ffda',
-    //         ],
-    //         borderColor: [
-    //             'rgba(187, 134, 252, 0.87)',
-    //             'rgba(3, 218, 198, 0.87)',
-    //         ],
-    //         borderWidth: 1
-    //     }]
-    // }
-
-    // const kelengkapan5=datafilter.filter(item => item["Kelengkapan fitur"] === '5').length
-    // const kelengkapan4=datafilter.filter(item => item["Kelengkapan fitur"] === '4').length
-    // const kelengkapan3=datafilter.filter(item => item["Kelengkapan fitur"] === '3').length
-    // const kelengkapan2=datafilter.filter(item => item["Kelengkapan fitur"] === '2').length
-    // const kelengkapan1=datafilter.filter(item => item["Kelengkapan fitur"] === '1').length 
-
-    // const datakelengkapan= {
-    //     labels: ['1', '2', '3', '4', '5'],
-    //     datasets: [{
-    //         label: 'Pengguna',
-    //         data: [kelengkapan1, kelengkapan2, kelengkapan3, kelengkapan4, kelengkapan5],
-    //         backgroundColor: [
-    //             '#303C55',
-    //             '#8892b0',
-    //             '#a8b2d1',
-    //             '#ccd6f6',
-    //             '#e6f1ff',
-    //             '#64ffda',
-    //         ],
-    //         borderColor: [
-    //             'rgba(187, 134, 252, 0.87)',
-    //             'rgba(3, 218, 198, 0.87)',
-    //         ],
-    //         borderWidth: 1
-    //     }]
-    // }
-
-    // const kemudahan5=datafilter.filter(item => item["Kemudahan operasi"] === '5').length
-    // const kemudahan4=datafilter.filter(item => item["Kemudahan operasi"] === '4').length
-    // const kemudahan3=datafilter.filter(item => item["Kemudahan operasi"] === '3').length
-    // const kemudahan2=datafilter.filter(item => item["Kemudahan operasi"] === '2').length
-    // const kemudahan1=datafilter.filter(item => item["Kemudahan operasi"] === '1').length 
-
-    // const datakemudahan= {
-    //     labels: ['1', '2', '3', '4', '5'],
-    //     datasets: [{
-    //         label: 'Pengguna',
-    //         data: [kemudahan1, kemudahan2, kemudahan3, kemudahan4, kemudahan5],
-    //         backgroundColor: [
-    //             '#303C55',
-    //             '#8892b0',
-    //             '#a8b2d1',
-    //             '#ccd6f6',
-    //             '#e6f1ff',
-    //             '#64ffda',
-    //         ],
-    //         borderColor: [
-    //             'rgba(187, 134, 252, 0.87)',
-    //             'rgba(3, 218, 198, 0.87)',
-    //         ],
-    //         borderWidth: 1
-    //     }]
-    // }
-
-    // const datasemua=[datakepuasan,datakepercayaan,datakesenangan,datakenyamanan,datakesalahanoperasi,datatampilan,datakelengkapan,datakemudahan]
-
     const options= {
         animation:{
             duration :3000
@@ -361,48 +190,41 @@ export default function Filter() {
             <Typography variant="h4">Analisis Data</Typography>
             <br />
             <div>
-                {gender.map((item,index)=>{
-                    return <FilterButton gender={item} tulisan={labelgender[index]} />
-                })}
-
+                <FormControl className={classes.formControl}>
+                    <InputLabel htmlFor="grouped-select">Jenis Kelamin</InputLabel>
+                    <Select defaultValue="" id="grouped-select">
+                    {gender.map((item,index)=>{
+                    return <MenuItem onClick={item} value={index}>{labelgender[index]}</MenuItem>
+                    })}
+                    </Select>
+                </FormControl>
+                <FormControl className={classes.formControl}>
+                    <InputLabel htmlFor="grouped-select">Usia</InputLabel>
+                    <Select defaultValue="" id="grouped-select">
+                    {age.map((item,index)=>{
+                    return <MenuItem onClick={item} value={index}>{labelage[index]}</MenuItem>
+                    })}
+                    </Select>
+                </FormControl>
+                <FormControl className={classes.formControl}>
+                    <InputLabel htmlFor="grouped-select">Jaringan</InputLabel>
+                    <Select defaultValue="" id="grouped-select">
+                    {network.map((item,index)=>{
+                    return <MenuItem onClick={item} value={index}>{labelnetwork[index]}</MenuItem>
+                    })}
+                    </Select>
+                </FormControl>
+                <FormControl className={classes.formControl}>
+                    <InputLabel htmlFor="grouped-select">Sistem Operasi</InputLabel>
+                    <Select defaultValue="" id="grouped-select">
+                    {pcdevice.map((item,index)=>{
+                    return <MenuItem onClick={item} value={index}>{labelpcdevice[index]}</MenuItem>
+                    })}
+                    </Select>
+                </FormControl>
+                
             </div>
             
-            <div>
-                <FilterButton gender={all2} tulisan={'All'} />
-                <FilterButton gender={bawah25} tulisan={'< 25'} />
-                <FilterButton gender={atas24} tulisan={'25-34'} />
-                <FilterButton gender={atas34} tulisan={'35-44'} />
-                <FilterButton gender={atas44} tulisan={'45-54'} />
-                <FilterButton gender={atas54} tulisan={'55-64'} />
-                <FilterButton gender={atas64} tulisan={'> 64'} />
-            </div>
-
-            <div>
-                <FilterButton gender={all3} tulisan ={'All'} />
-                <FilterButton gender={telkom} tulisan ={'Telkom'} />
-                <FilterButton gender={firstmedia} tulisan ={'First Media'} />
-                <FilterButton gender={mncplay} tulisan ={'MNC Play'} />
-                <FilterButton gender={biznet} tulisan ={'Biznet'} />
-                <FilterButton gender={myrepublic} tulisan ={'MyRepublic'} />
-            </div>
-
-            <div>
-                <FilterButton gender={telkomsel} tulisan ={'Telkomsel'} />
-                <FilterButton gender={xlaxis} tulisan ={'XL/Axis'} />
-                <FilterButton gender={indosat} tulisan ={'Indosat'} />
-                <FilterButton gender={smartfren} tulisan ={'Smartfren'} />
-                <FilterButton gender={three} tulisan ={'3'} />
-            </div>
-            
-            <div>
-                <FilterButton gender={all4} tulisan ={'All'} />
-                <FilterButton gender={windows} tulisan ={'Windows'} />
-                <FilterButton gender={linux} tulisan ={'Linux'} />
-                <FilterButton gender={macos} tulisan ={'Mac Os'} />
-                <FilterButton gender={android} tulisan ={'Android'} />
-                <FilterButton gender={ios} tulisan ={'Appple iOS'} /> 
-            </div>
-
             
             <br/>
             <Typography variant="h5" >Total Responden</Typography>
