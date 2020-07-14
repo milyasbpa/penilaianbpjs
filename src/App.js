@@ -1,26 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header1 from './component/header/Header1';
+
+import {Switch, Route} from 'react-router-dom'
+import Home from './component/Home'
+import Layout from './component/layout/Layout'
+
+import {menulinktotal,judulmenutotal,deskripsimenutotal} from './component/header/arraymenu';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header1/>
+
+      {/* Layouting dibawah header */}
+      <Switch>
+        <Route exact path='/' component = {Home} />
+
+        {menulinktotal.map((item,index)=> {
+          return(
+            <Route exact path={item}>
+              <Layout judul={judulmenutotal[index]}
+              deskripsi={deskripsimenutotal[index]}
+              />
+            </Route>
+          )
+        })}
+      </Switch>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
