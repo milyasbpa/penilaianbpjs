@@ -120,8 +120,9 @@ export default function Filter(props) {
     const sumaterabarat=()=>{setProvinsi('Sumatera Barat')}
     const sumateraselatan=()=>{setProvinsi('Sumatera Selatan')}
     const sumaterautara=()=>{setProvinsi('Sumatera Utara')}
+    const all5=()=>{setProvinsi('All')}
     const daerahprovinsi=[
-        aceh,bali,banten,bengkulu,diy,dki,gorontalo,
+        all5,aceh,bali,banten,bengkulu,diy,dki,gorontalo,
         jambi,jawabarat,jawatengah,jawatimur,kalimantanbarat,kalimantanselatan,kalimantantengah,
         kalimantantimur,kalimantanutara,kepulauanbangkabelitung,kepulauanriau,maluku,malukuutara,
         ntb,ntt,papua,papuabarat,riau,sulawesibarat,sulawesiselatan,sulawesitengah,
