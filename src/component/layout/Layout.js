@@ -5,6 +5,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+// import {datatotalgrafik} from '../DataChart'
 
 import Responsive from '../Responsive'
 import Filter from '../Filter';
@@ -97,7 +98,7 @@ const AntTab = withStyles((theme) => ({
   selected: {},
 }))((props) => <Tab disableRipple {...props} />);
 
-const tabmenu=['Hasil PQ', 'Hasil QiU']
+const tabmenu=['Hasil QiU Eksternal']
 
 
 export default function Layout(props) {
@@ -121,13 +122,13 @@ export default function Layout(props) {
               <AntTab label={item} {...a11yProps(index)} />
           )
           })}
-        </AntTabs>
+        </AntTabs> 
 
         {tabmenu.map((item,index) => {
             return(
                 <TabPanel value={value} index={index}>
-                    <Responsive/>
-                    <Filter/>
+                    <Responsive datatotalgrafik={props.datatotal}/>
+                    <Filter jsontotal={props.jsontotal}/>
                 </TabPanel>
             )
         })}
