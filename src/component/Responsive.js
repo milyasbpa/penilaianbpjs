@@ -2,6 +2,8 @@ import React,{useState,useEffect} from 'react'
 // import {datatotalgrafik} from './DataChart'
 // import { Pie } from 'react-chartjs-2';
 import { Bar } from 'react-chartjs-2'
+import { Pie } from 'react-chartjs-2'
+
 // import { Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
@@ -64,7 +66,11 @@ export default function Nangkap(props) {
                 return (
                     <Grid item xs={12} sm={6} md={4}style={{backgroundColor:'#fff'}}>
                         {/* <Typography variant="p" >{juduldata[index]}</Typography> */}
+                        {item.labels.length===2 ? 
+                        <Pie data={item} options={optionssemua[index]}/> :
                         <Bar data={item} options={optionssemua[index]}/>
+                        }
+                        {/* <Bar data={item} options={optionssemua[index]}/> */}
                     </Grid>
                 )
             })}

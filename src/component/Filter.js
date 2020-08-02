@@ -9,6 +9,8 @@ import { Typography } from '@material-ui/core';
 // import GroupButton from './GroupButton';
 
 import { Bar } from 'react-chartjs-2';
+import { Pie } from 'react-chartjs-2';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 
@@ -171,6 +173,25 @@ export default function Filter(props) {
         datafilter.filter(item=>item["Bagaimana tingkat kepuasan Anda terhadapÂ layanan yang tersedia di aplikasi?"]===labelkepuasan).length
         )
 
+    const labelpenggunaanlayanan = ['Ya','Tidak (mohon sebutkan layanan yang tidak dipakai, misalnya layanan untukÂ pembatalan booking dokter)']
+    const labelpenggunaanlayanane=['Ya','Tidak']
+    const grafikpenggunaanlayanan = labelpenggunaanlayanan.map(labelpenggunaanlayanan=> 
+        datafilter.filter(item=>item["Apakah Anda menggunakan semua layanan yang terdapat pada aplikasi?"]===labelpenggunaanlayanan).length
+        )
+
+    const labelpenggunaanfitur = ['Ada (mohon sebutkan fiturnya, misal fitur upload foto)','Tidak ada, semua fitur pernah digunakan']
+    const labelpenggunaanfiture=['Ada','Tidak ada']
+    const grafikpenggunaanfitur = labelpenggunaanfitur.map(labelpenggunaanfitur=> 
+        datafilter.filter(item=>item["Apakah terdapat fitur yang jarang atau tidak pernah digunakan?"]===labelpenggunaanfitur).length
+        )
+
+    const labelkomplain = ['Pernah (mohon jelaskan komplain Anda)','Tidak pernah']
+    const labelkomplaine=['Pernah','Tidak pernah']
+    const grafikkomplain = labelkomplain.map(labelkomplain=> 
+        datafilter.filter(item=>item["Apakah Anda pernah melakukan komplain mengenai layanan/fitur aplikasi?"]===labelkomplain).length
+        )
+    
+    
     const labelkepercayaan = ['Sangat percaya','Percaya','Cukup percaya', 'Kurang percaya', 'Tidak percaya']
     const grafikkepercayaan = labelkepercayaan.map(labelkepercayaan=> 
         datafilter.filter(item=>item["Sejauh mana tingkat kepercayaanÂ Anda terhadap aplikasi?"]===labelkepercayaan).length
@@ -196,19 +217,32 @@ export default function Filter(props) {
         datafilter.filter(item=>item["Berikan penilaian Anda mengenai tampilan aplikasi"]===labeltampilan).length
         )
 
+    const labelkemudahanfitur = ['Mudah','Sulit (mohon tuliskan kesulitan Anda dalam menggunakan fitur di aplikasi)']
+    const labelkemudahanfiture =['Mudah','Sulit']
+    const grafikkemudahanfitur = labelkemudahanfitur.map(labelkemudahanfitur=> 
+        datafilter.filter(item=>item["Apakah fitur pada aplikasi dapat digunakan dengan mudah? (misal: form input berada di satu halaman sehingga tidak perlu bolak balik)"]===labelkemudahanfitur).length
+        )
+
+    const labelkebutuhan = ['Sudah','Belum (mohon sebutkan apa yang perlu dikembangkan)']
+    const labelkebutuhane =['Sudah','Belum']
+    const grafikkebutuhan = labelkebutuhan.map(labelkebutuhan=> 
+        datafilter.filter(item=>item["Apakah aplikasi dapat digunakan dengan baik untuk menyelesaikan kebutuhan Anda? (contoh: saya berhasil mendapatkan nomor antrean online melalui aplikasi)"]===labelkebutuhan).length
+        )
+
+        
     const labelkelengkapan = ['1','2','3', '4', '5']
     const grafikkelengkapan = labelkelengkapan.map(labelkelengkapan=> 
         datafilter.filter(item=>item["Berikan penilaian Anda mengenai kelengkapan fitur aplikasi"]===labelkelengkapan).length
         )
 
-    const labelkemudahan = ['1','2','3', '4', '5']
-    const grafikkemudahan = labelkemudahan.map(labelkemudahan=> 
-        datafilter.filter(item=>item["Berikan penilaian Anda mengenai kemudahan pengoperasian aplikasi"]===labelkemudahan).length
+    const labelkemudahanoperasi = ['1','2','3', '4', '5']
+    const grafikkemudahanoperasi = labelkemudahanoperasi.map(labelkemudahanoperasi=> 
+        datafilter.filter(item=>item["Berikan penilaian Anda mengenai kemudahan pengoperasian aplikasi"]===labelkemudahanoperasi).length
         )
 
-    const datasemua=[grafikkepuasan,grafikkepercayaan,grafikkesenangan,grafikkenyamanan,grafikkesalahanoperasi,grafiktampilan,grafikkelengkapan,grafikkemudahan]
-    const labelsemua=[labelkepuasan,labelkepercayaan,labelkesenangan,labelkenyamanan,labelkesalahanoperasi,labeltampilan,labelkelengkapan,labelkemudahan]
-    const juduldatasemua = ['Kepuasan','Kepercayaan','Kesenangan','Kenyamanan','Kesalahan Operasi','Tampilan','Kelengkapan Fitur','Kemudahan Operasi']
+    const datasemua=[grafikkepuasan,grafikpenggunaanlayanan,grafikpenggunaanfitur,grafikkomplain,grafikkepercayaan,grafikkesenangan,grafikkenyamanan,grafikkesalahanoperasi,grafikkemudahanfitur,grafikkebutuhan,grafiktampilan,grafikkelengkapan,grafikkemudahanoperasi]
+    const labelsemua=[labelkepuasan,labelpenggunaanlayanane,labelpenggunaanfiture,labelkomplaine,labelkepercayaan,labelkesenangan,labelkenyamanan,labelkesalahanoperasi,labelkemudahanfiture,labelkebutuhane,labeltampilan,labelkelengkapan,labelkemudahanoperasi]
+    const juduldatasemua = ['Kepuasan','Penggunaan Layanan','Penggunaan Fitur','Pengajuan Komplain','Kepercayaan','Kesenangan','Kenyamanan','Kesalahan Operasi','Kesulitan Penggunaan Fitur','Pemenuhan Kebutuhan','Tampilan','Kelengkapan Fitur','Kemudahan Operasi']
 
     
     const datasemuagrafik=datasemua.map((item,index)=> {
@@ -325,8 +359,10 @@ export default function Filter(props) {
                    
                     {datasemuagrafik.map((datasemuagrafik,index) => {return (
                         <Grid item xs={12} sm={6} md={4} >
-                            {/* <Typography variant="p">{juduldatasemua[index]}</Typography> */}
-                            <Bar data={datasemuagrafik} options={optionssemua[index]}  />
+                            {datasemuagrafik.labels.length===2 ? 
+                                <Pie data={datasemuagrafik} options={optionssemua[index]}/> :
+                                <Bar data={datasemuagrafik} options={optionssemua[index]}/>
+                            }
                         </Grid>
                     )}
                     )}
