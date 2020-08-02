@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/penilaianbpjs/static/css/main.00da4410.chunk.css",
-    "main.js": "/penilaianbpjs/static/js/main.77ed7839.chunk.js",
-    "main.js.map": "/penilaianbpjs/static/js/main.77ed7839.chunk.js.map",
+    "main.js": "/penilaianbpjs/static/js/main.ecb37773.chunk.js",
+    "main.js.map": "/penilaianbpjs/static/js/main.ecb37773.chunk.js.map",
     "runtime-main.js": "/penilaianbpjs/static/js/runtime-main.bdbb745e.js",
     "runtime-main.js.map": "/penilaianbpjs/static/js/runtime-main.bdbb745e.js.map",
     "static/js/2.3a313f8a.chunk.js": "/penilaianbpjs/static/js/2.3a313f8a.chunk.js",
     "static/js/2.3a313f8a.chunk.js.map": "/penilaianbpjs/static/js/2.3a313f8a.chunk.js.map",
     "index.html": "/penilaianbpjs/index.html",
-    "precache-manifest.8e1961dfe85e633faebb1af0a07d0db7.js": "/penilaianbpjs/precache-manifest.8e1961dfe85e633faebb1af0a07d0db7.js",
+    "precache-manifest.fdf28a0230df1937ed85a74cdaecbbeb.js": "/penilaianbpjs/precache-manifest.fdf28a0230df1937ed85a74cdaecbbeb.js",
     "service-worker.js": "/penilaianbpjs/service-worker.js",
     "static/css/main.00da4410.chunk.css.map": "/penilaianbpjs/static/css/main.00da4410.chunk.css.map",
     "static/js/2.3a313f8a.chunk.js.LICENSE.txt": "/penilaianbpjs/static/js/2.3a313f8a.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.bdbb745e.js",
     "static/js/2.3a313f8a.chunk.js",
     "static/css/main.00da4410.chunk.css",
-    "static/js/main.77ed7839.chunk.js"
+    "static/js/main.ecb37773.chunk.js"
   ]
 }
