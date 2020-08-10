@@ -15,23 +15,55 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 
 
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
+// import InputLabel from '@material-ui/core/InputLabel';
+// import MenuItem from '@material-ui/core/MenuItem';
+// import FormControl from '@material-ui/core/FormControl';
+// import Select from '@material-ui/core/Select';
 
 
 import {warnagrafik,warnaborder} from './warna/warna'
 
+import NestedList from './NestedList'
+
 // Style
 const useStyles = makeStyles((theme) => ({
     root: {
-      flexGrow: 1,
-      marginTop:'20px'
+    //   flexGrow: 1,
+    //   marginTop:'20px'
+    display:'flex',
+      margin:'auto',
+      justifyContent:'center',
+      alignItems:'flex-start',
+      maxWidth:'1280px',
+      paddingTop:'50px',
+    },
+    rootfilter:{
+        marginTop:'20px',
+        marginRight:'30px',
+        marginLeft:'30px',
+        padding:'20px 5px',
+        border:'1px solid #c0c0c0',
+        borderRadius:'4px'
+    },
+    rootgrafik:{
+        flexGrow:1
+    },
+    filterdata:{
+        paddingTop:'50px'
     },
     formControl: {
         margin: theme.spacing(1),
         minWidth: 120,
+      },
+    keterangan:{
+        fontSize:14,
+        textAlign:'center',
+        // fontWeight:'bold'
+      },
+      keteranganangka:{
+        fontSize:18,
+        textAlign:'center',
+        fontWeight:'bold'
       },
   }));
 
@@ -89,15 +121,15 @@ export default function Filter(props) {
     const labelpcdevice=['All','PC/Laptop: Windows','PC/Laptop: Linux','PC/Laptop: MacOs','Mobile: Android','Mobile: Apple iOS']
 
     const [Provinsi,setProvinsi] = useState('All')
-    const aceh=()=>{setProvinsi('Bali')} 
-    const bali=()=>{setProvinsi('Banten')}
-    const banten=()=>{setProvinsi('Bengkulu')}
-    const bengkulu=()=>{setProvinsi('D.I Yogyakarta')}
-    const diy=()=>{setProvinsi('D.K.I Jakarta')}
-    const dki=()=>{setProvinsi('Gorontalo')}
-    const gorontalo=()=>{setProvinsi('Jambi')}
-    const jambi=()=>{setProvinsi('Jawa Barat')}
-    const jawabarat=()=>{setProvinsi('Jawa Tengah')}
+    const aceh=()=>{setProvinsi('Aceh')} 
+    const bali=()=>{setProvinsi('Bali')}
+    const banten=()=>{setProvinsi('Banten')}
+    const bengkulu=()=>{setProvinsi('Bengkulu')}
+    const diy=()=>{setProvinsi('D.I Yogyakarta')}
+    const dki=()=>{setProvinsi('D.K.I Jakarta')}
+    const gorontalo=()=>{setProvinsi('Gorontalo')}
+    const jambi=()=>{setProvinsi('Jambi')}
+    const jawabarat=()=>{setProvinsi('Jawa Barat')}
     const jawatengah=()=>{setProvinsi('Jawa Tengah')}
     const jawatimur=()=>{setProvinsi('Jawa Timur')}
     const kalimantanbarat=()=>{setProvinsi('Kalimantan Barat')}
@@ -294,18 +326,36 @@ export default function Filter(props) {
         scales: {
             yAxes: [{
                ticks: {
-                  beginAtZero: true
+                  beginAtZero: true,
+                  fontSize:10
                }
+            }],
+            xAxes:[{
+                ticks:{
+                    fontSize:11
+                }
             }]
          }
     }})
 
+    // const isijeniskelamin=['All','Laki-laki','Perempuan']
     return (
-        <div className="Filter" style={{}} >
-            <br />
+        <div className={classes.root} >
+            {/* <br />
             <Typography variant="h4">Analisis Data</Typography>
-            <br />
-            <div>
+            <br /> */}
+            <div className={classes.rootfilter}  >
+                <Typography className={classes.keterangan} >Total Responden</Typography>
+                <Typography className={classes.keteranganangka} >{datafilterpanjang}</Typography>        
+                <NestedList judulfilter={'Jenis Kelamin'} isifilter={labelgender} method={gender} />
+                <NestedList judulfilter={'Usia'} isifilter={labelage} method={age} />
+                <NestedList judulfilter={'Jaringan'} isifilter={labelnetwork} method={network} />
+                <NestedList judulfilter={'Sistem Operasi'} isifilter={labelpcdevice} method={pcdevice} />
+                <NestedList judulfilter={'Provinsi'} isifilter={labelprovinsi} method={daerahprovinsi} />
+            </div>            
+
+
+            {/* <div className={classes.filterdata} >
                 <FormControl className={classes.formControl}>
                     <InputLabel htmlFor="grouped-select">Jenis Kelamin</InputLabel>
                     <Select defaultValue="" id="grouped-select">
@@ -347,18 +397,18 @@ export default function Filter(props) {
                     </Select>
                 </FormControl>
                 
-            </div>
+            </div> */}
             
             
-            <br/>
-            <Typography variant="h5" >Total Responden</Typography>
-            <Typography variant="h1" >{datafilterpanjang}</Typography>        
+            {/* <br/> */}
+            {/* <Typography variant="h5" >Total Responden</Typography>
+            <Typography variant="h1" >{datafilterpanjang}</Typography>         */}
 
-            <div className={classes.root}>
-                <Grid container spacing={3} style={{backgroundColor:'#fff'}}>
+            <div className={classes.rootgrafik}>
+                <Grid container spacing={3} justify="center" >
                    
                     {datasemuagrafik.map((datasemuagrafik,index) => {return (
-                        <Grid item xs={12} sm={6} md={4} >
+                        <Grid item xs={12} sm={10} md={5} >
                             {datasemuagrafik.labels.length===2 ? 
                                 <Pie data={datasemuagrafik} options={optionssemua[index]}/> :
                                 <Bar data={datasemuagrafik} options={optionssemua[index]}/>

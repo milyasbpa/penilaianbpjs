@@ -67,7 +67,7 @@ export const sulawesi=gorontalo+sulawesibarat+sulawesiselatan+sulawesitengah+sul
 export const malukupulau=maluku+malukuutara
 export const papuapulau=papua+papuabarat
 
-export const pulaudata=[sumatera,jawa,nt,kalimantan,sulawesi,malukupulau,papuapulau]
+export const pulaudata=[sumatera,jawa,bali,nt,kalimantan,sulawesi,malukupulau,papuapulau]
 export const pulaulabel=['Sumatera', 'Jawa', 'Bali', 'Nusa Tenggara', 'Kalimantan', 'Sulawesi', 'Maluku', 'Papua']
 
 
@@ -87,32 +87,13 @@ export const labelsemua=[
     pulaulabel,
 ]
 
-function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
-  
-    // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
-  
-      // Pick a remaining element...
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-  
-      // And swap it with the current element.
-      temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue;
-    }
-  
-    return array;
-  }
-
 export const dataantreanonline=datasemua.map((item,index)=> {
     return {
         labels:labelsemua[index],
         datasets: [{
         label: 'Pengguna',
         data: item,
-        backgroundColor: shuffle(warnagrafik),
+        backgroundColor: warnagrafik,
         borderColor: warnaborder,
         borderWidth: 1
     }]

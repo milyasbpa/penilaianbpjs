@@ -36,6 +36,22 @@ export const judulmenu1=[
     'Mobile JKN'
 ]
 
+export const menulinktot=[`/boa`,`/lupis`,`/pcare`,`/vclaim`,`/vd`,`/hfis`,`/antreanonline`,`/apotekonline`,`/keuangan`,`/newinmonica`,`/iuranwajib`,`/kepatuhan`,`/kepesertaan`,`/rbu`,`/edabu`,`/sipp`,`/csti`,`/mobilejkn`]
+export const menulinkintext=[`/internal`,`/eksternal`];
+export const menuprofdata=[`/profil`,`/data`]
+
+let test=[]
+
+for(let i=0;i<menulinktot.length;i++){
+    for(let j=0;j<menulinkintext.length;j++){
+        for(let k=0;k<menuprofdata.length;k++){
+            test=[...test,`${menulinktot[i]}${menulinkintext[j]}${menuprofdata[k]}`]
+        }
+    }
+}
+
+export const menulinkkom = test;
+
 export const deskripsimenu1=[
     'Aplikasi yang dipergunakan untuk Pencatatan Data FKTP & FKRTL serta Kredensialing & Re-Kredensialing',
     'Aplikasi yang berfungsi untuk mengambil nomor antrean untuk pelayanan FKTP yang terintegrasi dengan Mobile JKN',

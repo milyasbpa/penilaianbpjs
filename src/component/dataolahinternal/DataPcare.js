@@ -1,6 +1,6 @@
-import {warnagrafik,warnaborder} from './warna/warna'
+import {warnagrafik,warnaborder} from '../warna/warna'
 
-import datas from './data/data.json'
+import datas from '../datainternal/datapcare.json'
 
 
 export const carikelamin=['Laki-laki','Perempuan'];
@@ -37,8 +37,8 @@ const jawabarat=datas["Sheet1"].filter(data => data["Provinsi"]==='Jawa Barat').
 const jawatengah=datas["Sheet1"].filter(data => data["Provinsi"]==='Jawa Tengah').length
 const jawatimur=datas["Sheet1"].filter(data => data["Provinsi"]==='Jawa Timur').length
 const kalimantanbarat=datas["Sheet1"].filter(data => data["Provinsi"]==='Kalimantan Barat').length
-const kalimantanselatan=datas["Sheet1"].filter(data => data["Provinsi"]==='Kalimantan Barat').length
-const kalimantantengah=datas["Sheet1"].filter(data => data["Provinsi"]==='Kalimantan Selatan').length
+const kalimantanselatan=datas["Sheet1"].filter(data => data["Provinsi"]==='Kalimantan Selatan').length
+const kalimantantengah=datas["Sheet1"].filter(data => data["Provinsi"]==='Kalimantan Tengah').length
 const kalimantantimur=datas["Sheet1"].filter(data => data["Provinsi"]==='Kalimantan Timur').length
 const kalimantanutara=datas["Sheet1"].filter(data => data["Provinsi"]==='Kalimantan Utara').length
 const kepulauanbangkabelitung=datas["Sheet1"].filter(data => data["Provinsi"]==='Kepulauan Bangka Belitung').length
@@ -67,7 +67,7 @@ export const sulawesi=gorontalo+sulawesibarat+sulawesiselatan+sulawesitengah+sul
 export const malukupulau=maluku+malukuutara
 export const papuapulau=papua+papuabarat
 
-export const pulaudata=[sumatera,jawa,nt,kalimantan,sulawesi,malukupulau,papuapulau]
+export const pulaudata=[sumatera,jawa,bali,nt,kalimantan,sulawesi,malukupulau,papuapulau]
 export const pulaulabel=['Sumatera', 'Jawa', 'Bali', 'Nusa Tenggara', 'Kalimantan', 'Sulawesi', 'Maluku', 'Papua']
 
 
@@ -87,9 +87,7 @@ export const labelsemua=[
     pulaulabel,
 ]
 
-
-
-export const datatotalgrafik=datasemua.map((item,index)=> {
+export const datapcareinternal=datasemua.map((item,index)=> {
     return {
         labels:labelsemua[index],
         datasets: [{

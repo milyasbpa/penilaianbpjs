@@ -16,7 +16,8 @@ import {
 // import module
 import Navbar from './Navbar'
 
-import {menunavbar,menulink} from './arraymenu'
+// import {menunavbar,menulink} from './arraymenu'
+import {menulinkkom} from './arraymenu'
 
 
 
@@ -39,20 +40,58 @@ HideOnScroll.propTypes = {
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1, 
+      
     },
     appBar:{
         background: '#ffffff',
-        // opacity:0.87
+        height:'40px',
+        justifyContent:'center',       
     },
     menulink:{
       color:'#000000',
       opacity:0.87,
       textDecoration:'none',
+      textTransform:'none',
     }
   }));
   
 
+  // const aplikasi=[
+  //   'HFIS',
+  //   'Antrean Online',
+  //   'Apotek Online',
+  //   'Keuangan',
+  //   'New-In Monica',
+  //   'Iuran Wajib',
+  //   'Wasrik',
+  //   'Kepesertaan',
+  //   'RBU',
+  //   'e-Dabu',
+  //   'SIPP',
+  //   'CSTI',
+  //   'Mobile JKN',
+  // ]
 
+  const aplikasi2=[
+    'BOA',
+    'LUPIS',
+    'Pcare',
+    'Vclaim',
+    'VD',
+    'HFIS',
+    'Antrean Online',
+    'Apotek Online',
+    'Keuangan',
+    'New-In Monica',
+    'Iuran Wajib',
+    'Wasrik',
+    'Kepesertaan',
+    'RBU',
+    'e-Dabu',
+    'SIPP',
+    'CSTI',
+    'Mobile JKN',
+  ]
 
 export default function Header1(props) {
     const classes = useStyles();
@@ -60,16 +99,19 @@ export default function Header1(props) {
     <React.Fragment>
       <CssBaseline />
 
-      <HideOnScroll {...props}>
+      <HideOnScroll {...props} >
         <AppBar className={classes.appBar}>
           <Toolbar>
             
-            {menunavbar.map((item,index)=>{
+            {/* {menunavbar.map((item,index)=>{
               return (
               <Button component={Link} to={menulink[index]} className={classes.menulink}>{item}</Button>
               )
-            })}
-            <Navbar data={'More'} />
+            })} */}
+            {/* <Navbar judul={'More'} aplikasi={aplikasi}/> */}
+            <Button component={Link} to={'/penilaianbpjs'} className={classes.menulink}>Home</Button>
+            <Navbar judul={'Aplikasi'} aplikasi={aplikasi2} pagination={menulinkkom}  />
+
           </Toolbar>
         </AppBar>
       </HideOnScroll>

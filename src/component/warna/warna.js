@@ -4,5 +4,5 @@ export const kuning = '#f8d90f'
 export const hijau = '#d3dd18'
 export const orange = '#fe7a15'
 
-export const warnagrafik = [birumuda,biru,kuning,hijau,orange,birumuda,biru,kuning,hijau,orange]
+export const warnagrafik = [biru,kuning,hijau,birumuda,orange,biru,kuning,hijau,birumuda,orange]
 export const warnaborder = ['#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff','#fff']

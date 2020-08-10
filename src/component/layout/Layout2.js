@@ -101,7 +101,7 @@ const AntTab = withStyles((theme) => ({
 const tabmenu=['Hasil QiU Eksternal','Hasil QiU Internal']
 
 
-export default function Layout(props) {
+export default function Layout2(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
@@ -111,13 +111,9 @@ export default function Layout(props) {
 
   return (
     <div className={classes.root}>
-    <Typography fontWeight="fontWeightMedium" variant="h4" style={{textAlign:'left'}}>{props.judul}</Typography>
-    <Typography fontWeight="fontWeightMedium" fontSize={12} style={{textAlign:'left'}}>
-        {props.deskripsi}
-    </Typography>
-    <br/>    
+      
 
-        <AntTabs value={value} onChange={handleChange} aria-label="simple tabs example">
+        {/* <AntTabs value={value} onChange={handleChange} aria-label="simple tabs example">
           {tabmenu.map((item,index) => { return (
               <AntTab label={item} {...a11yProps(index)} />
           )
@@ -151,7 +147,7 @@ export default function Layout(props) {
           //   )
           // }
         })}
-        
+         */}
     </div>
   );
 }

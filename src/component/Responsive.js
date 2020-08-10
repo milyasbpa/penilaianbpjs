@@ -11,8 +11,11 @@ import { Container } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-      flexGrow: 1,
+    //   flexGrow: 1,
+      display:'flex',
       margin:'auto',
+      justifyContent:'center',
+      alignItems:'center',
     //   background:'000',
       
       
@@ -21,29 +24,41 @@ const useStyles = makeStyles((theme) => ({
 
   const juduldata=['Jenis Kelamin','Usia','Jaringan Kabel', 'Jaringan Seluler', 'Perangkat','Daerah']
 
-  const optionssemua = juduldata.map(item=> {return{
-    title:{
-        display:true,
-        text:item,
-        fontFamily:"'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
-        fontStyle:'bold',
-        fontSize:14,
-    },
-    animation:{
-        duration :3000
-    },
-    scales: {
-        yAxes: [{
-           ticks: {
-              beginAtZero: true
-           }
-        }]
-     }
-}})
-
+  
 export default function Nangkap(props) {
     const datatotalgrafik=props.datatotalgrafik
+    // console.log(datatotalgrafik[0].datasets[0].data[0].max)
     const [tinggi, setTinggi] = useState(window.innerHeight);
+
+    // let scaley=[...datatotalgrafik.map(item=>item.length)]
+
+    const optionssemua = juduldata.map((item,index)=> {return{
+        title:{
+            display:true,
+            text:item,
+            fontFamily:"'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+            fontStyle:'bold',
+            fontSize:14,
+        },
+        animation:{
+            duration :3000
+        },
+        scales: {
+            yAxes: [{
+               ticks: {
+                  beginAtZero: true,
+                  fontSize:10,
+                //   stepSize:datatotalgrafik[index].datasets[0].data[index].max
+               }
+            }],
+            xAxes:[{
+                ticks:{
+                    fontSize: 10,
+                }
+            }]
+         }
+    }})
+    
 
     useEffect(() => {
         window.addEventListener("resize", updateWidthAndHeight);
@@ -59,12 +74,12 @@ export default function Nangkap(props) {
     
     return (
         <div className={classes.root} style={{minHeight:tinggi}}>
-            <Container maxWidth={'lg'} style={{backgroundColor:'#fff'}}>
+            <Container maxWidth={'lg'} >
             
             <Grid container spacing={3} >
             {datatotalgrafik.map((item,index) => {
                 return (
-                    <Grid item xs={12} sm={6} md={4}style={{backgroundColor:'#fff'}}>
+                    <Grid item xs={12} sm={6} md={4}>
                         {/* <Typography variant="p" >{juduldata[index]}</Typography> */}
                         {item.labels.length===2 ? 
                         <Pie data={item} options={optionssemua[index]}/> :
